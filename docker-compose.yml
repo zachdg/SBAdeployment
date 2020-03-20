@@ -50,22 +50,20 @@ services:
       - '8080:8080'
     depends_on:
       - "kafka"
-      - "db"
       
   data_store:
     image: datastore
     ports:
       - '8090:8090'
     depends_on:
-      - "kafka"
       - "db"
+      - "kafka"
       
   processor:
     image: processor
     ports:
       - '8100:8100'
     depends_on:
-      - "kafka"
       - "db"
       
   audit_log:
@@ -74,7 +72,7 @@ services:
       - '8040:8040'
     depends_on:
       - "kafka"
-      - "db"
+
 # Names our volume 
 volumes: 
   my-db:
