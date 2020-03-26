@@ -50,7 +50,9 @@ services:
       - '8080:8080'
     depends_on:
       - "kafka"
-      
+    volumes:
+      - ./configs/event-receiver:/config
+
   data_store:
     image: datastore
     ports:
@@ -58,21 +60,26 @@ services:
     depends_on:
       - "db"
       - "kafka"
-      
+    volumes:
+      - ./configs/datastore:/config
+
   processor:
     image: processor
     ports:
       - '8100:8100'
     depends_on:
       - "db"
-      
+    volumes:
+      - ./configs/processor:/config
+
   audit_log:
     image: audit-log
     ports:
       - '8040:8040'
     depends_on:
       - "kafka"
-
+    volumes:
+      - ./configs/audit-log:/config
 # Names our volume 
 volumes: 
   my-db:

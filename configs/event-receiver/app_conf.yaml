@@ -1,0 +1,4 @@
+kafka:
+  server: kafka
+  port: 9092
+  topic: events

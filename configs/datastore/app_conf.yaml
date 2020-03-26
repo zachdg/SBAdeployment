@@ -1,0 +1,11 @@
+version: 1
+datastore:
+  user: user
+  password: password
+  hostname: ec2-34-223-239-244.us-west-2.compute.amazonaws.com
+  port: 3306
+  db: rides
+kafka:
+  server: ec2-34-223-239-244.us-west-2.compute.amazonaws.com
+  port: 9092
+  topic: events
